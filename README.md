@@ -1,4 +1,5 @@
 # CaaS-GitOps
+
 ## Overview
 Welcome to the CaaS-GitOps repository which gives you an introduction to use OpenShift GitOps with your tenant concept. The repository is designed to showcase the use of ArgoCD to syncronise your tenant applications and infrastructures with a Git repository, ensuring Continuous Deployment (CD). Developers can define application and environment configurations in this Git repository, and ArgoCD will ensure that the OpenShift cluster matches the defined state, deploying and updating applications automatically.
 
@@ -79,11 +80,34 @@ Applications can be deployed with kustomization files, helm templates, helm repo
 #### 1) Using YAML definitions of Kubernetes resources
 Kubernetes resources can be deployed to the cluster by simpling adding files with YAML definition of Kubernetes resources. Folder `applicationsets/dev/ex1-kubernetes-resources` illustrates an example of how this is done for a service resource. 
 
-#### 2) Using YAML definitions of Kubernetes resources
+#### 2) Kustomization file
+A Kustomization file can be used to define multiple Kubernetes resoucres. It will only deploy the Kubernetes resources listed in the kustomization file.
 
+Folder `applicationsets/dev/ex2-kustomize` illustrates an example of how to use a Kustomization file. In addition, this example show how to use the base folder to add the same deployment to both the `dev` and `test` environment. 
 
+#### 3) Helm 
+Helm is another effective tool for deploying and managing Kubernetes applications. It simplifies the process of defining, installing, and upgrading even the most complex Kubernetes applications. Here we will list different examples for deploying helm:
 
+1) Local Helm chart: If you want to define a helm chart locally folder `applicationsets/dev/ex3-helm-1` gives an example for how this can be done. Here a simple service and serviceaccount is defined under the folder `templates/` and the application is created by reading the `values.yaml` and `Chart.yaml` file.
+   
+2) External Helm repository: If you want to use an external Helm repository folder `applicationsets/dev/ex3-helm-2` gives an example of how this can be done through a kustomization file. Kustomize uses a helmCharts field which has the ability to use the helm command line program in a subprocess to inflate a helm chart, generating YAML as part of (or as the entirety of) a kustomize base. 
+   * This only works for public repositories. If you want to use a private repository it is recommended to create an ArgoCD application with the [user-defined method](#user-defined-argocd-applications). 
+   
 ## User-defined ArgoCD applications
 
+The user-defined method for creating ArgoCD applications is only recommended if the auto-defined methos don´t meet your applications requirements. The reason for this is that this method has some limitiations:
+* Developers need to have more in-depth knowledge of ArgoCD
+* It can be difficult to mange many ArgoCD applications in one Tenant
+* A naming standard is required since the ArgoCD applications will have to be deployed in the namespace `gitops-developers`. This is a common namespace across all Tenants. Talk to your Tenant administrator regarding the naming standard.
+
+When can it be useful to use user-defined ArgoCD applications:
+* If you need to use a private helm repository
+* If you want more freedom with your ArgoCD application definitions. 
+
+The following file `poseidon1_main_repo/applications/dev/ex1-helm-app.yml` shows an example of how to deploy a application.
 
 
+
+# Helpful Resources:
+- https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_helmchartinflationgenerator_
+- 

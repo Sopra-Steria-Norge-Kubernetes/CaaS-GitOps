@@ -2,7 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 bases:
-  - ../../base/demo-kustomize
+  - ../../base/ex2-kustomize
 
 resources:
-  - example1-service.yml
+  - example2-service.yml
+  - example2-not-deployed.yml

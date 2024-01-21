@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-demo-3
+  name: poseidon2-dev-helm-example-user-defined
   namespace: gitops-developers # REMEMBER TO USE THE APPROPRIATE NAMESPACE HERE
 spec:
   project: poseidon1
