@@ -1,0 +1,20 @@
+# Default values for nginx-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+service:
+  name: nginx-service
+  type: ClusterIP
+  port: 80
+  targetPort: 9000
+  selector:
+    app: nginx
+
+serviceAccount:
+  name: "nginx-service-account"
+  create: true
+  annotations: {}
+
+# Custom labels can be specified here
+# These labels will be added to the Service and ServiceAccount
+
