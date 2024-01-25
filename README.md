@@ -1,7 +1,19 @@
 # CaaS-GitOps
 
 ## Overview
-Welcome to the CaaS-GitOps repository which gives you an introduction to use OpenShift GitOps with your tenant concept. The repository is designed to showcase the use of ArgoCD to syncronise your tenant applications and infrastructures with a Git repository, ensuring Continuous Deployment (CD). Developers can define application and environment configurations in this Git repository, and ArgoCD will ensure that the OpenShift cluster matches the defined state, deploying and updating applications automatically.
+Welcome to the CaaS-GitOps repository which gives an introduction to use OpenShift GitOps with the tenant concept. The repository is designed to showcase the use of ArgoCD to syncronise your tenant applications and infrastructures with a Git repository, ensuring Continuous Deployment (CD). Developers can define application and environment configurations in this Git repository, and ArgoCD will ensure that the OpenShift cluster matches the defined state, deploying and updating applications automatically.
+
+A developer must configure in their tenant definition to use `user-defined` and/or `auto-defined` application-creation. When this is set the developer must set up their repository to ligne with their choice of GitOps method. Below is a picture to illustra the process on a high-level:
+![Alt text](doc/pictures/GitOps.png)
+
+### GitOps process
+The GitOps process follows these steps:
+1. Define the tenant defintion with the wanted GitOps method. Push the configuration to your OCP Admin. Follow the setup given in the section [Setting up a tenant](#setting-up-a-tenant).
+2. When the changes is merged by the OCP admin the changes will be implemented in the OpenShift cluster.
+3. Define Kubernetes resources in the Tenants Main Git repository. Follow the examples given in the section [Getting Started](#getting-started).
+4. The ArgoCD resources will then sync resources from the Tenants Main Git repository. It is important to define the correct target path in the repository. 
+5. When the resources are synced from the main Tenant repository the resources will be created in the cluster with ArgoCD. 
+
 
 ## Introduction
 In this repository we will create a example tenant to showcase the different option for enabling a GitOps for your tenant. 
