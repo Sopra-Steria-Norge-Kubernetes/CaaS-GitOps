@@ -51,7 +51,7 @@ spec:
 
 ### Expose services on a different ingressController
 
-While exposing services on a specific ingressController you have to 
+While exposing services on a specific ingressController you have to set two additional fields as seen below. 
 
 ```
 kind: Ingress
@@ -65,3 +65,10 @@ spec:
   ingressClassName: openshift-ingress-external (2)
 ```
 
+1. The label used to define that your route should be exposed on a specific ingress. Which label should be used for each customer is agreed upon once self-service of exposing services on a specific ingress is approved.
+2. The name of the ingress class you are using. Also agreed upon when exposing services on a specific ingress is set up.
+
+### Requirements for all ingress objects
+
+All ingress objects are required to specify:
+1. 
