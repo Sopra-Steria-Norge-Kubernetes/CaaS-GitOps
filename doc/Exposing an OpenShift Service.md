@@ -11,4 +11,8 @@ externally-exposed: true
 # Exposing an OpenShift service
 
 ## Purpose
-Expose services running in OpenShift 
+Expose services running in OpenShift outside the scope of the cluster.
+
+### Exposing a service using the wildcard ingress certificate
+
+
