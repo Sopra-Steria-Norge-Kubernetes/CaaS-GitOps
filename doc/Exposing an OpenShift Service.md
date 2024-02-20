@@ -71,4 +71,16 @@ spec:
 ### Requirements for all ingress objects
 
 All ingress objects are required to specify:
-1. 
+```
+metadata:
+  annotations:
+    haproxy.router.openshift.io/ip_whitelist: 
+```
+Reason: Developers can expose their services wherever they like, but they need to actively decide which IP range should be allowed to access their service.
+
+```
+spec:
+  tls:
+```
+Reason: Services should be exposed using HTTPS, not H
+
