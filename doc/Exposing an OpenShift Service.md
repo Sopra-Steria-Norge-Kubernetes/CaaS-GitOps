@@ -42,9 +42,9 @@ spec:
 
 1. Name of your ingress object.
 2. Namespace where your ingress object is built.
-3. IP adress range allowed to reach your service. `0.0.0.0/0`will allow all source IP's.
+3. The IP address range allowed you to reach your service. `0.0.0.0/0`will allow all source IPs.
 4. TLS configuration. The configuration in the example will use the wildcard ingress certificate to expose your service. 
-5. Which ingress class should be used to expose your service.
+5. Select the ingress class that should be used to expose your service.
 6. Name of your service.
 7. Port exposed by your service.
 
@@ -52,7 +52,7 @@ spec:
 
 While exposing services on a specific ingressController you have to set two additional fields as seen below. 
 
-```
+```yaml
 kind: Ingress
 apiVersion: networking.k8s.io/v1 
 metadata: 
@@ -70,20 +70,20 @@ spec:
 ### Requirements for all ingress objects
 
 All ingress objects are required to specify:
-```
+```yaml
 metadata:
   annotations:
     haproxy.router.openshift.io/ip_whitelist: 
 ```
 Reason: Developers can expose their services wherever they like, but they need to actively decide which IP range should be allowed to access their service.
 
-```
+```yaml
 spec:
   tls:
 ```
 Reason: Services should be exposed using HTTPS, not HTTP. 
 
-```
+```yaml
 spec:
   ingressClassName:
 ```
