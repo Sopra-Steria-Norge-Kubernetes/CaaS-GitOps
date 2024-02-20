@@ -1,5 +1,5 @@
 
-#Connecting to a Git repository
+# Connecting to a Git repository
 The `argocd` feature can connect to a Git repository through a Personal Access Token (PAT) or a GitHub App. The table below shows a more detailed description of each variable in the `argocd` feature under the `main_git_repository`. The table is split into three categories: 
 - **Default**: variables that both connection methods need
 - **PAT**: variables needed to connect with a GitHub PAT token
