@@ -44,4 +44,9 @@ spec:
 
 1. Name of your ingress object.
 2. Namespace where your ingress object is built.
-3. IP adress range allowed to reach your 
+3. IP adress range allowed to reach your service. `0.0.0.0/0`will allow all source IP's.
+4. TLS configuration. The configuration in the example will use the wildcard ingress certificate to expose your service. 
+5. Which ingress class should be used to expose your service.
+6. Name of your service.
+7. Port exposed by your service.
+
