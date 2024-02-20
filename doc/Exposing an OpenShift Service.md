@@ -6,7 +6,7 @@ Target Audience: Developers
 Dependencies: None
 externally-exposed: true
 ---
-[[_TOC_]]
+[[__TOC__]]
 
 # Exposing an OpenShift service
 
