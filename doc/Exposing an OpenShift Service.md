@@ -75,6 +75,7 @@ metadata:
   annotations:
     haproxy.router.openshift.io/ip_whitelist: 
 ```
+
 Reason: Developers can expose their services wherever they like, but they need to actively decide which IP range should be allowed to access their service.
 
 ```yaml
