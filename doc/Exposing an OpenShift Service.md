@@ -12,7 +12,6 @@ externally-exposed: true
 
 ## Purpose
 Expose services running in OpenShift outside the scope of the cluster. For documentation on how to create OpenShift routes, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.13/networking/routes/route-configuration.html)
-
 ### Exposing a service using the wildcard ingress certificate
 
 To expose a service running in OpenShift you can create an object of type Ingress. 
@@ -50,4 +49,19 @@ spec:
 6. Name of your service.
 7. Port exposed by your service.
 
-### 
+### Expose services on a different ingressController
+
+While exposing services on a specific ingressController you have to 
+
+```
+kind: Ingress
+apiVersion: networking.k8s.io/v1 
+metadata: 
+  name: minimal-ingress
+  namespace: my-namespace 
+  labels: 
+    mydeveloperplatform/exposetointernet: "true" (1) 
+spec:
+  ingressClassName: openshift-ingress-external (2)
+```
+
