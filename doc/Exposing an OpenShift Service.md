@@ -81,12 +81,14 @@ Reason: Developers can expose their services wherever they like, but they need t
 spec:
   tls:
 ```
+
 Reason: Services should be exposed using HTTPS, not HTTP. 
 
 ```yaml
 spec:
   ingressClassName:
 ```
+
 Reason: While the ingresses will default to openshift-default while ingressClassName is not set, it is considered a good practice to actively decide which ingressClass is used.
 
 
