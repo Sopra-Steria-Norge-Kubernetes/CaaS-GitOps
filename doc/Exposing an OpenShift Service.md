@@ -21,22 +21,27 @@ To expose a service running in OpenShift you can create an object of type Ingres
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minimal-ingress
+  name: minimal-ingress (1)
+  namespace: my-namespace (2)
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    haproxy.router.openshift.io/ip_whitelist: '0.0.0.0/0'
+    haproxy.router.openshift.io/ip_whitelist: '0.0.0.0/0' (3)
 spec:
-  tls: 
-  - hosts:
-    - myhost 
-  ingressClassName: openshift-default
+  tls: (4)
+  - {}
+  ingressClassName: openshift-default (5)
   rules:
   - http:
       paths:
-      - path: /testpath
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: test
+            name: test (6)
             port:
-              number: 80
+              number: 80 (7)
+```
+
+1. Name of your ingress object.
+2. Namespace where your ingress object is built.
+3. IP adress range allowed to reach your 
