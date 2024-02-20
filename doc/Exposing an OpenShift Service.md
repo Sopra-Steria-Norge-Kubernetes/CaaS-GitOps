@@ -6,7 +6,6 @@ Target Audience: Developers
 Dependencies: None
 externally-exposed: true
 ---
-[[__TOC__]]
 
 # Exposing an OpenShift service
 
@@ -16,7 +15,7 @@ Expose services running in OpenShift outside the scope of the cluster. For docum
 
 To expose a service running in OpenShift you can create an object of type Ingress. 
 
-```
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
