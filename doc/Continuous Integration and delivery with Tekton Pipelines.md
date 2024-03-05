@@ -13,7 +13,8 @@ This CI/CD pipeline serves as a template to showcase our streamlined development
 ## Design overview
 
 This is a general overview of the steps involved in the process. 
-![](/pictures/CI_CD%20-%20Tekton%20(1).png)
+
+![](pictures/CI_CD%20-%20Tekton%20(1).png)
 
 This workflow is a high-level representation of a CI/CD process where code changes are automatically fetched, built, and deployed, demonstrating the concept of a pipeline that progresses from code to deployment in a series of automated steps.
 
@@ -51,7 +52,7 @@ This is a overview and description of the different repositories used in the CI/
 ## In-depth overview
 This section of the documentation aims to describe the CI/CD process in detail, and will provide the reader with a in-depth overview over the workflow. It will ble divided into two main sections; Continuous Integration (*Tekton pipeline part*) and Continuous Delivery.
 
-![](../Attachments/CI_CD%20-%20Tekton.png)
+![](pictures/CI_CD%20-%20Tekton.png)
 
 
 ### Continuous Integration with Tekton Pipelines
