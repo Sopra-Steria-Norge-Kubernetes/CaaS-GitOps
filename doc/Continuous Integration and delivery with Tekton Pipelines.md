@@ -98,7 +98,7 @@ In this section will go through the process of setting the correct variables and
 ### Prerequisites
 * Have read and deployed a deployment as described in this document:   
 	* [Tenant-application deployment](https://dev.azure.com/SolidCloudv2/SolidCloud/_wiki/wikis/SolidCloud.wiki/2350/Tenant-application)
-
+	* Have defined a container limit range in your tenant
 
 >[!NOTE]
 >The values set in the example below is just for this documentation purpose and should be replaced with the correct values for your configuration. 
